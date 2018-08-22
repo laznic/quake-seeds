@@ -15,3 +15,4 @@ Supports both Battlefy and manual input.
 - [ ] Upload a .txt / .cvs / .pdf of player names and do seeding
 - [ ] Generate visualization of brackets
 - [ ] Create groups based on seeds
+- [ ] Support 2v2 teams
