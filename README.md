@@ -4,9 +4,11 @@ Web interface that allows you to automatically seed Quake Champion players based
 
 Supports both Battlefy and manual input.
 
-[Quake Champions](https://quake.bethesda.net/en)
-[Battlefy](https://battlefy.com)
-[Quake Stats](https://stats.quake.com)
+- [Quake Champions](https://quake.bethesda.net/en)
+- [Battlefy](https://battlefy.com)
+- [Quake Stats](https://stats.quake.com)
+- [Puppeteer](https://pptr.dev/)
+- [Hapi](https://hapijs.com/)
 
 ## Planned features after 1.0
 
