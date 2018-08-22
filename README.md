@@ -1,4 +1,4 @@
-# Quake Seeder
+# Quake Seeds
 
 Web interface that allows you to automatically seed Quake Champion players based on their Elo rating.
 
