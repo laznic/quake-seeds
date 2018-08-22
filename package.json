@@ -1,0 +1,36 @@
+{
+  "name": "quake-seeds",
+  "version": "0.1.0",
+  "description": "Quake Seeds - Web app to seed Quake Champion players",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js -L --watch server/ --watch manifest.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://laznic@gitlab.com/terrain/server.git"
+  },
+  "author": "Niklas Lepistö - niklas@demtrees.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://gitlab.com/terrain/server/issues"
+  },
+  "homepage": "https://gitlab.com/terrain/server#README",
+  "dependencies": {
+    "confidence": "^3.0.2",
+    "glue": "^5.0.0",
+    "hapi": "^17.5.2",
+    "handlebars": "^4.0.11",
+    "hoek": "^5.0.3",
+    "inert": "^5.1.0",
+    "joi": "^13.4.0",
+    "knex": "^0.15.2",
+    "lout": "^11.0.1",
+    "nodemon": "^1.18.3",
+    "npm": "^6.2.0",
+    "ramda": "^0.25.0",
+    "vision": "^5.3.3",
+    "visionary": "^6.0.2"
+  }
+}
