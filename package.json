@@ -18,6 +18,7 @@
   },
   "homepage": "https://gitlab.com/terrain/server#README",
   "dependencies": {
+    "bluebird": "^3.5.1",
     "confidence": "^3.0.2",
     "glue": "^5.0.0",
     "handlebars": "^4.0.11",
