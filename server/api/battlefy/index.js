@@ -1,5 +1,3 @@
-'use strict'
-
 const puppeteer = require('puppeteer')
 const Wreck = require('wreck')
 
@@ -7,23 +5,29 @@ const initialRoutes = function (server, options) {
 
     server.route({
       method: 'GET',
-      path: '/battlefy',
+      path: '/battlefy/{id}',
       handler: async function(request, h) {
         let url = ''
 
-        const browser = await puppeteer.launch();
-        const page = await browser.newPage();
-        await page.setRequestInterception(true)
-        page.on('request', req => {
-          if (req.resourceType() === 'xhr' && req.url().includes('cloudfront.net/tournaments') && req.url().includes('teams-count')) {
-            url = req.url().replace('teams-count', 'teams')
-          }
+        if (~request.params.id.indexOf('http')) {
+          const browser = await puppeteer.launch();
+          const page = await browser.newPage();
+          await page.setRequestInterception(true)
+          page.on('request', req => {
+            if (req.resourceType() === 'xhr' && req.url().includes('cloudfront.net/tournaments') && req.url().includes('teams-count')) {
+              url = req.url().replace('teams-count', 'teams')
+            }
 
-          req.continue();
-        })
-        await page.goto('https://battlefy.com/quake/quake-champions-community-tournament-amateur-duel-eu-2/5b33baaa14237c03994f7ccf/participants');
+            req.continue();
+          })
+          await page.goto(request.params.id + '/participants');
 
-        await browser.close();
+          await browser.close();
+
+        } else {
+          url = 'https://api.battlefy.com/tournaments/' + request.params.id + '/teams'
+        }
+
         const promise = Wreck.get(url)
 
         try {
