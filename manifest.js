@@ -41,11 +41,16 @@ const manifest = {
               html: Handlebars
             },
             relativeTo: __dirname,
-            path: 'templates'
+            path: 'templates/partials',
+            layout: 'default',
+            layoutPath: 'templates'
           }
         },
         {
           plugin: './server/web/index',
+        },
+        {
+          plugin: './server/web/seeds/index',
         },
         {
           plugin: './server/api/battlefy/index',

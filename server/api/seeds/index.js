@@ -22,7 +22,10 @@ const initialRoutes = function (server, options) {
           }
         })
 
-        return await Promise.all(playerRatings).then(values => sort(descend(prop('rating')), values))
+        const seeds =  await Promise.all(playerRatings).then(values => sort(descend(prop('rating')), values))
+
+        request.yar.set('seeds', seeds)
+        return h.redirect('/seeds')
       }
     })
 }
@@ -30,5 +33,5 @@ const initialRoutes = function (server, options) {
 
 exports.plugin = {
   register: initialRoutes,
-  name: 'seeds'
+  name: 'seeds-api'
 }
