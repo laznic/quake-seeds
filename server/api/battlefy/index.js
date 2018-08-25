@@ -33,8 +33,8 @@ const initialRoutes = function (server, options) {
 
         try {
           const { payload } = await promise
-          const players = JSON.parse(payload.toString()).map(player => player.name)
-          request.yar.set('players', players)
+          const players = JSON.parse(payload.toString()).filter(player => player.checkedInAt).map(player => player.name)
+          await request.yar.set('players', players)
           return h.redirect('/api/seeds')
 
         } catch (err) {

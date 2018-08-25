@@ -8,7 +8,8 @@ const initialRoutes = function (server, options) {
       method: 'GET',
       path: '/seeds',
       handler: function(request, h) {
-        const seeds = request.yar.get('seeds')
+        const seeds = request.yar.get('seeds') || []
+        request.yar.clear('seeds')
         return h.view('seeds', { title: 'Seeds', seeds })
       }
     })
