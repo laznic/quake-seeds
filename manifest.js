@@ -3,7 +3,7 @@ require('dotenv').config()
 
 const manifest = {
     server: {
-      port: 4000,
+      port: process.env.PORT || 5000,
       debug: {
         request: ['error']
       },
