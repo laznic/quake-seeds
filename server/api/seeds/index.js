@@ -1,7 +1,6 @@
-'use strict'
-
-const puppeteer = require('puppeteer')
 const Wreck = require('wreck')
+const Promise = require('bluebird')
+const { sort, descend, prop } = require('ramda')
 
 const initialRoutes = function (server, options) {
 
@@ -10,16 +9,28 @@ const initialRoutes = function (server, options) {
       path: '/seeds',
       handler: async function(request, h) {
         const players = request.yar.get('players')
-        let playerRatings = []
 
-        await players.forEach(async player => {
-          const promise = Wreck.get('https://stats.quake.com/api/v2/Player/Stats?name=' + player)
-          const { payload } = await promise
-          const playerRating = JSON.parse(payload.toString())
-          playerRatings.push({ name: player, rating: playerRatings.duel.rating })
-        })
+        if (players) {
+          const playerRatings = players.map(async player => {
+            const promise = Wreck.get('https://stats.quake.com/api/v2/Player/Stats?name=' + player)
 
-        return playerRatings
+            try {
+              const { payload } = await promise
+              const playerData = JSON.parse(payload.toString())
+              return { name: player, rating: playerData.playerRatings.duel.rating }
+
+            } catch (err) {
+              return { name: player, rating: 0 }
+            }
+          })
+
+          const seeds =  await Promise.all(playerRatings).then(values => sort(descend(prop('rating')), values))
+
+          request.yar.set('seeds', seeds)
+          request.yar.clear('players')
+        }
+
+        return h.redirect('/seeds')
       }
     })
 }
@@ -27,5 +38,5 @@ const initialRoutes = function (server, options) {
 
 exports.plugin = {
   register: initialRoutes,
-  name: 'seeds'
+  name: 'seeds-api'
 }

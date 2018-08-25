@@ -1,6 +1,5 @@
-'use strict'
-
 const Handlebars = require('handlebars')
+require('dotenv').config()
 
 const manifest = {
     server: {
@@ -27,10 +26,8 @@ const manifest = {
             },
             storeBlank: false,
             cookieOptions: {
-              password: 'thisIsMeTestingThisCookieLongPassword',
-              isSecure: false,
-              isSameSite: false,
-              isHttpOnly: true
+              password: process.env.COOKIE_PASSWORD,
+              isSecure: process.env.NODE_ENV !== 'development'
             }
           }
         },
@@ -41,11 +38,16 @@ const manifest = {
               html: Handlebars
             },
             relativeTo: __dirname,
-            path: 'templates'
+            path: 'templates/partials',
+            layout: 'default',
+            layoutPath: 'templates'
           }
         },
         {
           plugin: './server/web/index',
+        },
+        {
+          plugin: './server/web/seeds/index',
         },
         {
           plugin: './server/api/battlefy/index',

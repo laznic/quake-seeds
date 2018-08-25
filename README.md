@@ -16,3 +16,4 @@ Supports both Battlefy and manual input.
 - [ ] Generate visualization of brackets
 - [ ] Create groups based on seeds
 - [ ] Support 2v2 teams
+- [ ] Support other games?

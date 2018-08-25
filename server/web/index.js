@@ -2,15 +2,29 @@
 
 const initialRoutes = function (server, options) {
 
-    server.route({
-      method: 'GET',
-      path: '/',
-      handler: function(request, h) {
-        return h.view('index', {
-          title: 'Quake Seeds'
-        })
+    server.route([
+      {
+        method: 'GET',
+        path: '/',
+        handler: {
+          view: {
+            template: 'index',
+            context: {
+              title: 'Quake Seeds'
+            }
+          }
+        }
+      },
+      {
+        method: 'GET',
+        path: '/{param*}',
+        handler: {
+            directory: {
+                path: 'static'
+            }
+        }
       }
-    })
+    ])
 }
 
 
