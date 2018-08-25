@@ -5,7 +5,7 @@ const initialRoutes = function (server, options) {
 
     server.route({
       method: 'GET',
-      path: '/battlefy/{id}',
+      path: '/battlefy/{id*}',
       handler: async function(request, h) {
         let url = ''
 
@@ -20,6 +20,7 @@ const initialRoutes = function (server, options) {
 
             req.continue();
           })
+
           await page.goto(request.params.id + '/participants');
 
           await browser.close();
