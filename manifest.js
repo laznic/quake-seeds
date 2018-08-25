@@ -1,6 +1,5 @@
-'use strict'
-
 const Handlebars = require('handlebars')
+require('dotenv').config()
 
 const manifest = {
     server: {
@@ -27,10 +26,8 @@ const manifest = {
             },
             storeBlank: false,
             cookieOptions: {
-              password: 'thisIsMeTestingThisCookieLongPassword',
-              isSecure: false,
-              isSameSite: false,
-              isHttpOnly: true
+              password: process.env.COOKIE_PASSWORD,
+              isSecure: process.env.NODE_ENV !== 'development'
             }
           }
         },
