@@ -1,9 +1,26 @@
 {{#if seeds.length}}
-  <ol>
-    {{#each seeds}}
-      <li>{{this.name}} –– {{this.rating}}</li>
-    {{/each}}
-  </ol>
+  <div style="display: flex;">
+    <div style="margin-right: 35px">
+      <h1>Registered players</h1>
+      <ul>
+        {{#each seeds}}
+          <li><a href={{this.url}} target="_blank">{{this.name}}</a> –– {{this.rating}}</li>
+        {{/each}}
+      </ul>
+    </div>
+
+    <div>
+      <h1>Checked in players</h1>
+      <ol>
+        {{#each seeds}}
+          {{#if this.checkedInAt}}
+            <li><a href={{this.url}} target="_blank">{{this.name}}</a> –– {{this.rating}}</li>
+          {{/if}}
+        {{/each}}
+      </ol>
+    </div>
+  </div>
+
 {{else}}
   <h1>No seeds available; is the check in done yet?</h1>
   <a href="/">Go back</a>

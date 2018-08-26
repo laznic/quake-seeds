@@ -12,24 +12,25 @@ const initialRoutes = function (server, options) {
 
         if (players) {
           const playerRatings = players.map(async player => {
-            const promise = Wreck.get('https://stats.quake.com/api/v2/Player/Stats?name=' + player)
+            const promise = Wreck.get('https://stats.quake.com/api/v2/Player/Stats?name=' + player.name)
 
             try {
               const { payload } = await promise
               const playerData = JSON.parse(payload.toString())
-              return { name: player, rating: playerData.playerRatings.duel.rating }
+              return { ...player, rating: playerData.playerRatings.duel.rating }
 
             } catch (err) {
-              return { name: player, rating: 0 }
+              return { ...player, rating: 0 }
             }
           })
 
           const seeds =  await Promise.all(playerRatings).then(values => sort(descend(prop('rating')), values))
 
           request.yar.set('seeds', seeds)
-          request.yar.clear('players')
+
         }
 
+        request.yar.clear('players')
         return h.redirect('/seeds')
       }
     })

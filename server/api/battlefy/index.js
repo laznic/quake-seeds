@@ -13,7 +13,7 @@ const initialRoutes = function (server, options) {
           const browser = await puppeteer.launch({
             args: ['--no-sandbox', '--disable-setuid-sandbox']
           });
-          
+
           const page = await browser.newPage();
           await page.setRequestInterception(true)
           page.on('request', req => {
@@ -36,7 +36,7 @@ const initialRoutes = function (server, options) {
 
         try {
           const { payload } = await promise
-          const players = JSON.parse(payload.toString()).filter(player => player.checkedInAt).map(player => player.name)
+          const players = JSON.parse(payload.toString()).map(player => ({ name: player.name, checkedInAt: player.checkedInAt, url: 'https://stats.quake.com/profile/' + encodeURIComponent(player.name) }))
           await request.yar.set('players', players)
           return h.redirect('/api/seeds')
 
