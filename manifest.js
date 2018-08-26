@@ -27,7 +27,9 @@ const manifest = {
             storeBlank: false,
             cookieOptions: {
               password: process.env.COOKIE_PASSWORD,
-              isSecure: process.env.NODE_ENV !== 'development'
+              isSecure: process.env.NODE_ENV !== 'development',
+              isSameSite: false,
+              isHttpOnly: process.env.NODE_ENV === 'development'
             }
           }
         },
