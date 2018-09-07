@@ -25,7 +25,7 @@ const initialRoutes = function (server, options) {
               const { payload } = await retryWithSpaceAtEnd
               const playerData = JSON.parse(payload.toString())
 
-              return { ...player, rating: playrData.playerRatings ? playerData.playerRatings.duel.rating : 0 }
+              return { ...player, rating: playerData.playerRatings ? playerData.playerRatings.duel.rating : 0, url: player.url + '%20' }
             }
           })
 
