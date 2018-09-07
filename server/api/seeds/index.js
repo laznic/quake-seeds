@@ -20,11 +20,16 @@ const initialRoutes = function (server, options) {
               return { ...player, rating: playerData.playerRatings.duel.rating }
 
             } catch (err) {
-              return { ...player, rating: 0 }
+              const retryWithSpaceAtEnd = Wreck.get('https://stats.quake.com/api/v2/Player/Stats?name=' + player.name + '%20')
+
+              const { payload } = await retryWithSpaceAtEnd
+              const playerData = JSON.parse(payload.toString())
+
+              return { ...player, rating: playrData.playerRatings ? playerData.playerRatings.duel.rating : 0 }
             }
           })
 
-          const seeds =  await Promise.all(playerRatings).then(values => sort(descend(prop('rating')), values))
+          const seeds = await Promise.all(playerRatings).then(values => sort(descend(prop('rating')), values))
 
           request.yar.set('seeds', seeds)
 
