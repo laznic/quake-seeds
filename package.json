@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon  -L --watch server/ --watch manifest.js --watch templates/ --watch static/"
+    "start": "nodemon  -L --watch server/ --watch manifest.js --watch templates/*.html --watch static/js --watch static/css"
   },
   "repository": {
     "type": "git",
