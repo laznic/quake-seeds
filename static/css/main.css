@@ -1,0 +1,122 @@
+body,
+html {
+  padding: 0;
+  margin: 0;
+  background: #11080b;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 24px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+a {
+  position: relative;
+  color: #fff;
+  text-decoration: none;
+}
+
+li {
+  text-align: left;
+  color: #fff;
+  line-height: 1.5;
+}
+
+a:not(.btn)::after {
+  display: block;
+  position: absolute;
+  top: 0;
+  right: -24px;
+  width: 16px;
+  height: 16px;
+  background: url('/img/icon-link.svg') no-repeat center center;
+  background-size: contain;
+  content: '';
+  opacity: 0.5;
+}
+
+a:not(.btn):hover,
+a:not(.btn):focus {
+  text-decoration: underline;
+}
+
+a:not(.btn):hover::after,
+a:not(.btn):focus::after, {
+  opacity: 1;
+}
+
+section {
+  width: 80%;
+  max-width: 400px;
+  margin: 75px auto 0;
+  padding: 25px 0;
+  text-align: center;
+}
+
+h1 {
+  color: #fff;
+  font-size: 32px;
+  text-align: center;
+}
+
+input[type=text] {
+  padding: 15px;
+  font-size: 24px;
+  border: 0;
+  border-bottom: 5px solid #3a3838;
+  background: none;
+  width: 100%;
+  text-align: center;
+  color: #fff;
+}
+
+input[type=text]:focus {
+  outline: none;
+  border-color: #fff;
+}
+
+button,
+.btn {
+  display: block;
+  width: 100%;
+  background: #99001a;
+  border: 0;
+  margin: 25px auto 0;
+  padding: 25px;
+  color: #fff;
+  appearance: none;
+  font-size: 24px;
+  cursor: pointer;
+  text-decoration: none;
+  max-width: 400px;
+}
+
+button:hover,
+button:focus,
+.btn:hover,
+.btn:focus {
+  background: #cc002c;
+  outline: none;
+}
+
+
+header {
+  height: 100px;
+  width: 80%;
+  max-width: 400px;
+  margin: 10vh auto 0;
+  background: url('/img/logo.svg') no-repeat center center;
+  background-size: contain;
+}
+
+.seed-list {
+  max-width: 800px;
+}
+
+main {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+}

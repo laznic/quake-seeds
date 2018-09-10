@@ -1,27 +1,30 @@
-{{#if seeds.length}}
-  <div style="display: flex;">
-    <div style="margin-right: 35px">
-      <h1>Registered players</h1>
-      <ul>
-        {{#each seeds}}
-          <li><a href={{this.url}} target="_blank">{{this.name}}</a> –– {{this.rating}}</li>
-        {{/each}}
-      </ul>
-    </div>
+<section class="seed-list">
+  {{#if seeds.length}}
+    <main>
+      <div>
+        <h1>Registered players</h1>
+        <ul>
+          {{#each seeds}}
+            <li><a href={{this.url}} target="_blank">{{this.name}} –– {{this.rating}}</a></li>
+          {{/each}}
+        </ul>
+      </div>
 
-    <div>
-      <h1>Checked in players</h1>
-      <ol>
-        {{#each seeds}}
-          {{#if this.checkedInAt}}
-            <li><a href={{this.url}} target="_blank">{{this.name}}</a> –– {{this.rating}}</li>
-          {{/if}}
-        {{/each}}
-      </ol>
-    </div>
-  </div>
+      <div>
+        <h1>Checked in players</h1>
+        <ol>
+          {{#each seeds}}
+            {{#if this.checkedInAt}}
+              <li><a href={{this.url}} target="_blank">{{this.name}} –– {{this.rating}}</a></li>
+            {{/if}}
+          {{/each}}
+        </ol>
+      </div>
+    </main>
 
-{{else}}
-  <h1>No seeds available; is the check in done yet?</h1>
-  <a href="/">Go back</a>
-{{/if}}
+  {{else}}
+    <h1>No seeds available; is the check in done yet?</h1>
+  {{/if}}
+
+  <a class="btn" href="/">Go back</a>
+</section>
