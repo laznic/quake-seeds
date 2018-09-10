@@ -120,3 +120,13 @@ main {
   justify-content: space-between;
   align-items: flex-start;
 }
+
+.warning {
+  display: block;
+  font-size: 16px;
+  padding: 15px;
+  color: #fff;
+  background: #333;
+  margin-bottom: 15px;
+  border-left: 10px solid #cc002c;
+}

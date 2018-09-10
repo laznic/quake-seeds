@@ -9,8 +9,12 @@ const initialRoutes = function (server, options) {
       path: '/seeds',
       handler: function(request, h) {
         const seeds = request.yar.get('seeds') || []
+        const checkInWarning = request.yar.get('checkInWarning')
+
         request.yar.clear('seeds')
-        return h.view('seeds', { title: 'Seeds', seeds })
+        request.yar.clear('checkInWarning')
+
+        return h.view('seeds', { title: 'Seeds', seeds, checkInWarning })
       }
     })
 }

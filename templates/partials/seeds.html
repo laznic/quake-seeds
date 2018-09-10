@@ -1,4 +1,10 @@
 <section class="seed-list">
+  {{#if checkInWarning}}
+    <span class="warning">
+      Check-in has started but is not finished yet; the results here aren't final and shouldn't be used to create brackets!
+    </span>
+  {{/if}}
+
   {{#if seeds.length}}
     <main>
       <div>
@@ -12,6 +18,7 @@
 
       <div>
         <h1>Checked in players</h1>
+
         <ol>
           {{#each seeds}}
             {{#if this.checkedInAt}}
