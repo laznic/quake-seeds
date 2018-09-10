@@ -19,9 +19,9 @@ const initialRoutes = function (server, options) {
         method: 'GET',
         path: '/{param*}',
         handler: {
-            directory: {
-                path: 'static'
-            }
+          directory: {
+            path: 'static'
+          }
         }
       }
     ])

@@ -1,4 +1,3 @@
-const puppeteer = require('puppeteer')
 const Wreck = require('wreck')
 
 const initialRoutes = function (server, options) {
@@ -10,23 +9,10 @@ const initialRoutes = function (server, options) {
         let url = ''
 
         if (~request.params.id.indexOf('http')) {
-          const browser = await puppeteer.launch({
-            args: ['--no-sandbox', '--disable-setuid-sandbox']
-          });
+          const idRegexp = /([a-zA-Z0-9]{24})(?:|$)/g
+          const id = request.params.id.match(idRegexp)[0]
 
-          const page = await browser.newPage();
-          await page.setRequestInterception(true)
-          page.on('request', req => {
-            if (req.resourceType() === 'xhr' && req.url().includes('cloudfront.net/tournaments') && req.url().includes('teams-count')) {
-              url = req.url().replace('teams-count', 'teams')
-            }
-
-            req.continue();
-          })
-
-          await page.goto(request.params.id + '/participants');
-
-          await browser.close();
+          url = 'https://api.battlefy.com/tournaments/' + id + '/teams'
 
         } else {
           url = 'https://api.battlefy.com/tournaments/' + request.params.id + '/teams'
