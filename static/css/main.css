@@ -111,6 +111,10 @@ header {
   background-size: contain;
 }
 
+a.header::after {
+  display: none;
+}
+
 .seed-list {
   max-width: 800px;
 }
@@ -180,7 +184,7 @@ footer {
   font-size: 16px;
   color: #512b37;
   text-align: center;
-  margin: 75px auto 0;
+  margin: 75px auto;
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
@@ -220,6 +224,7 @@ footer a:hover {
   font-size: 18px;
   color: #fff;
   text-align: left;
+  margin-top: 55px;
 }
 
 .about a {
