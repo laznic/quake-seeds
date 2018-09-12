@@ -215,3 +215,17 @@ footer a:hover {
   color: #fff;
   margin-bottom: 35px;
 }
+
+.about {
+  font-size: 18px;
+  color: #fff;
+  text-align: left;
+}
+
+.about a {
+  color: #cc002c;
+}
+
+.about a:not(.btn)::after {
+  display: none;
+}

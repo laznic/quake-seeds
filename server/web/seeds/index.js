@@ -1,6 +1,4 @@
-const Wreck = require('wreck')
-const Promise = require('bluebird')
-const { sort, descend, prop } = require('ramda')
+'use strict'
 
 const initialRoutes = function (server, options) {
 
@@ -17,9 +15,7 @@ const initialRoutes = function (server, options) {
         request.yar.clear('checkInWarning')
         request.yar.clear('fromPlayers')
 
-
-
-        return h.view(renderPartial, { title: 'Seeds', seeds, checkInWarning, fromPlayers })
+        return h.view(renderPartial, { title: 'Quake Seeds - Seedings', seeds, checkInWarning, fromPlayers })
       }
     })
 }

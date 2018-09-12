@@ -51,6 +51,9 @@ const manifest = {
           plugin: './server/web/seeds/index',
         },
         {
+          plugin: './server/web/about/index',
+        },
+        {
           plugin: './server/api/battlefy/index',
           routes: { prefix: '/api' }
         },
