@@ -2,7 +2,7 @@ body,
 html {
   padding: 0;
   margin: 0;
-  background: #11080b;
+  background: linear-gradient(#261219, #11080b 25%) no-repeat fixed;
   font-family: Helvetica, Arial, sans-serif;
   font-size: 24px;
 }
@@ -90,6 +90,7 @@ button,
   cursor: pointer;
   text-decoration: none;
   max-width: 400px;
+  border-radius: 2px;
 }
 
 button:hover,
