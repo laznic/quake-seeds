@@ -7,6 +7,8 @@ Battlefy or just by yourself, every minute counts. Using this tool helps you qui
 
 Supports both Battlefy and manual input.
 
+**Note:** Only duel is supported for now. 2v2 is coming up in the future.
+
 ## How it works
 How the app works is that it takes in either a Battlefy tournament URL or ID (that is also visible in the URL) or manually added player names.
 
