@@ -1,0 +1,19 @@
+<section class="seed-list">
+  {{#if seeds.length}}
+    <main>
+      <div>
+        <h1>Player seeding</h1>
+        <ol>
+          {{#each seeds}}
+            <li><a href={{this.url}} target="_blank">{{this.name}} –– {{this.rating}}</a></li>
+          {{/each}}
+        </ol>
+      </div>
+    </main>
+
+  {{else}}
+    <h1>No seeds available; are you sure you typed the names correctly?</h1>
+  {{/if}}
+
+  <a class="btn" href="/">Go back</a>
+</section>

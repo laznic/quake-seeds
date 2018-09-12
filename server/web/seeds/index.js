@@ -10,11 +10,16 @@ const initialRoutes = function (server, options) {
       handler: function(request, h) {
         const seeds = request.yar.get('seeds') || []
         const checkInWarning = request.yar.get('checkInWarning')
+        const fromPlayers = request.yar.get('fromPlayers')
+        let renderPartial = fromPlayers ? 'players-seeds' : 'battlefy-seeds'
 
         request.yar.clear('seeds')
         request.yar.clear('checkInWarning')
+        request.yar.clear('fromPlayers')
 
-        return h.view('seeds', { title: 'Seeds', seeds, checkInWarning })
+
+
+        return h.view(renderPartial, { title: 'Seeds', seeds, checkInWarning, fromPlayers })
       }
     })
 }

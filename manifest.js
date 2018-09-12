@@ -57,6 +57,10 @@ const manifest = {
         {
           plugin: './server/api/seeds/index',
           routes: { prefix: '/api' }
+        },
+        {
+          plugin: './server/api/players/index',
+          routes: { prefix: '/api' }
         }
       ]
     }
