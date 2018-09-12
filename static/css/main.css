@@ -234,3 +234,17 @@ footer a:hover {
 .about a:not(.btn)::after {
   display: none;
 }
+
+.error-page {
+  font-size: 16px;
+  color: #fff;
+}
+
+.error-page h1 {
+  font-size: 64px;
+  margin: 0;
+}
+
+.error-page .btn {
+  margin-top: 50px;
+}

@@ -25,6 +25,18 @@ const initialRoutes = function (server, options) {
         }
       }
     ])
+
+    server.ext('onPreResponse', (request, h) => {
+
+      const response = request.response
+      if (response.isBoom &&
+          response.output.statusCode === 404) {
+
+          return h.view('index', { title: 'Quake Seeds - 404' }, { layout: '404' }).code(404)
+      }
+
+      return h.continue;
+  });
 }
 
 
