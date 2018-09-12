@@ -174,3 +174,44 @@ main {
   margin: 15px 0;
   font-style: italic;
 }
+
+footer {
+  display: flex;
+  font-size: 16px;
+  color: #512b37;
+  text-align: center;
+  margin: 75px auto 0;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+footer a {
+  color: #870c27;
+}
+
+footer a:first-child {
+  margin-right: 15px;
+}
+
+footer a:not(.btn)::after {
+  display: none;
+}
+
+footer a:hover {
+  color: #cc002c;
+}
+
+.copy {
+  display: block;
+  width: 100%;
+  margin-top: 15px;
+  font-size: 12px;
+}
+
+.intro {
+  display: block;
+  font-size: 16px;
+  color: #fff;
+  margin-bottom: 35px;
+}
