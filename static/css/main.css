@@ -130,3 +130,36 @@ main {
   margin-bottom: 15px;
   border-left: 10px solid #cc002c;
 }
+
+.separator {
+  position: relative;
+  display: block;
+  color: #fff;
+  margin: 60px 0 40px;
+  overflow: hidden;
+  font-size: 16px;
+}
+
+.separator span {
+  position: relative;
+  display: inline-block;
+  z-index: 1;
+  padding: 0 15px;
+  background: #11080b;
+}
+
+.separator::before {
+  position: absolute;
+  top: 50%;
+  display: block;
+  width: 100%;
+  height: 2px;
+  background: #fff;
+  content: '';
+  overflow: hidden;
+  transform: translateY(-50%);
+}
+
+.players input {
+  margin-bottom: 10px;
+}
