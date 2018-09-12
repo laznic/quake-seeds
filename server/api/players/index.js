@@ -8,7 +8,7 @@ const initialRoutes = function (server, options) {
       method: 'GET',
       path: '/players',
       handler: async function(request, h) {
-        let players = request.query.name
+        let players = Array.isArray(request.query.name) ? request.query.name : [request.query.name]
 
         if (players) {
           players = players.map(player => ({ name: encodeURIComponent(player), url: 'https://stats.quake.com/profile/' + encodeURIComponent(player) }))
@@ -23,7 +23,7 @@ const initialRoutes = function (server, options) {
               return { ...player, rating: playerData.playerRatings.duel.rating }
 
             } catch (err) {
-              const retryWithSpaceAtEnd = Wreck.get('https://stats.quake.com/api/v2/Player/Stats?name=' + player + '%20')
+              const retryWithSpaceAtEnd = Wreck.get('https://stats.quake.com/api/v2/Player/Stats?name=' + player.name + '%20')
 
               const { payload } = await retryWithSpaceAtEnd
               const playerData = JSON.parse(payload.toString())
