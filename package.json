@@ -1,11 +1,11 @@
 {
   "name": "quake-seeds",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "Quake Seeds - Web app to seed Quake Champion players",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon server.js -L --watch server/ --watch manifest.js --watch templates/ --watch static/"
+    "start": "nodemon --watch server/ --watch manifest.js --watch templates/ --watch static/js --watch static/css -e js,css,html"
   },
   "repository": {
     "type": "git",
@@ -31,7 +31,6 @@
     "lout": "^11.0.1",
     "nodemon": "^1.18.3",
     "npm": "^6.2.0",
-    "puppeteer": "^1.7.0",
     "ramda": "^0.25.0",
     "vision": "^5.3.3",
     "visionary": "^6.0.2",

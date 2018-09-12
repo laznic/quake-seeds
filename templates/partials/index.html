@@ -1,4 +1,13 @@
-<h1>Quake Seeds</h1>
+<section>
+  <span class="intro">A tool to help you seed Quake Champion players based on their Elo rating. Start by using a</span>
 
-<input type="text" placeholder="Battlefy URL or ID" class="id" onkeyup="onKeyUp(event)">
-<button type="button" name="button" class="btn" onclick="goToSeeds()">Get seeds</button>
+  <input type="text" placeholder="Battlefy URL or ID" class="id" onkeyup="onKeyUp(event)">
+
+  <span class="separator"><span>or add players manually</span></span>
+
+  <div class="players">
+    <input type="text" placeholder="Player name, e.g. rapha" class="name" onkeyup="onKeyUpName(event)">
+  </div>
+  <span class="notice">Note: names must be case-sensitive</span>
+  <button type="button" name="button" class="btn" onclick="goToSeeds()">Get seeds</button>
+</section>

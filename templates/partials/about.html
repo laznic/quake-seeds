@@ -1,0 +1,30 @@
+<section class="about">
+  <p>
+    If you're running a Quake Champions tournament, whether on Battlefy or just by yourself, every minute counts. Using this tool helps you quickly to determine player seeds based on their Elo rating.
+  </p>
+
+  <p>
+    The idea got started by the <a href="https://twitter.com/FinlandQuake">Finnish QC community</a> and their first tournament. To speed up the seeding process and avoiding manual work, such as checking
+    the rating of each checked-in player one by one, we wanted to create a small app to do that.
+  </p>
+
+  <p>
+    How the app works is that it takes in either a Battlefy tournament URL or ID (that is also visible in the URL) or manually added player names.
+  </p>
+
+  <p>
+    In the case of Battlefy URL or ID, the app fetches the tournament information and all the registered players and for each player, it uses the <a href="https://stats.quake.com">Stats site</a>
+    to get the player ratings. Then it sorts the players from the highest Elo to the lowest in a numerical order, creating our seeds. The app will display both registered and checked-in players
+    in the same view and a warning will be shown if the check-in has started but not finished, prompting that the results are not final and shouldn't be used.
+  </p>
+
+  <p>
+    For manual input the app just takes a list of entered names, which have to be case sensitive due to the nature of how the <a href="https://stats.quake.com">Stats site</a> and QC works, and directly fetches the ratings for each player
+    and does the numerical seeding. This format displays less data in the seeding view.
+  </p>
+
+  <p>
+    We keep on improving this tool and adding more features, but if you find any bugs or have other suggestions, please report them at our <a href="https://gitlab.com/laznic/quake-seeds">GitLab page</a>.
+    You can also send a tweet to <a href="https://twitter.com/laznic">the main developer</a>.
+  </p>
+</section>
