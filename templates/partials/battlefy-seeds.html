@@ -8,14 +8,21 @@
   {{#if seeds.length}}
     <main>
       <div>
-        <h1>Registered players</h1>
+        <h1>
+          {{#if isDuel}}
+            Registered players
+          {{else}}
+           Registered teams
+          {{/if}}
+        </h1>
+
         <ol {{#unless isDuel}}class="teams"{{/unless}}>
           {{#each seeds}}
             {{#if isDuel}}
-              <li><a href={{this.url}} target="_blank">{{this.name}} –– {{this.rating}}</a></li>
+              <li><a href={{this.url}} target="_blank">{{this.name}} – {{this.rating}}</a></li>
             {{else}}
             <li>
-              <span>{{this.name}} –– {{this.rating}}</span>
+              <span>{{this.name}} – {{this.rating}}</span>
               {{#each this.players}}
                 <a href={{this.url}} target="_blank">{{this.name}}</a>
                 <br>
@@ -27,16 +34,22 @@
       </div>
 
       <div>
-        <h1>Checked in players</h1>
+        <h1>
+          {{#if isDuel}}
+            Checked in players
+          {{else}}
+            Checked in teams
+          {{/if}}
+        </h1>
 
         <ol {{#unless isDuel}}class="teams"{{/unless}}>
           {{#each seeds}}
             {{#if this.checkedInAt}}
               {{#if isDuel}}
-                <li><a href={{this.url}} target="_blank">{{this.name}} –– {{this.rating}}</a></li>
+                <li><a href={{this.url}} target="_blank">{{this.name}} – {{this.rating}}</a></li>
               {{else}}
               <li>
-                <span>{{this.name}} –– {{this.rating}}</span>
+                <span>{{this.name}} – {{this.rating}}</span>
                 {{#each this.players}}
                   <a href={{this.url}} target="_blank">{{this.name}}</a>
                   <br>

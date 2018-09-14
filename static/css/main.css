@@ -298,6 +298,10 @@ footer a:hover {
   font-weight: 400;
 }
 
+ol {
+  max-width: 360px;
+}
+
 ol.teams span {
   display: block;
   width: 100%;
