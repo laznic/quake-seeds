@@ -64,6 +64,10 @@ const manifest = {
         {
           plugin: './server/api/players/index',
           routes: { prefix: '/api' }
+        },
+        {
+          plugin: './server/api/teams/index',
+          routes: { prefix: '/api' }
         }
       ]
     }

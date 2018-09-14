@@ -248,3 +248,70 @@ footer a:hover {
 .error-page .btn {
   margin-top: 50px;
 }
+
+.tabs {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 35px;
+}
+
+.tabs a {
+  padding: 10px 25px;
+  border-radius: 2px;
+  font-size: 24px;
+}
+
+.tabs a.active {
+  background: #fff;
+  color: #000;
+  font-weight: 800;
+}
+
+.tabs a:not(.btn)::after {
+  display: none;
+}
+
+.team-members {
+  display: flex;
+  justify-content: space-between;
+}
+
+.team-members input {
+  width: 48%;
+}
+
+.team {
+  margin-bottom: 45px;
+}
+
+.team:last-child {
+  margin-bottom: 0;
+}
+
+.team-name {
+  font-weight: 800;
+}
+
+.team-name::placeholder {
+  font-weight: 400;
+}
+
+ol {
+  max-width: 360px;
+}
+
+ol.teams span {
+  display: block;
+  width: 100%;
+}
+
+ol.teams a {
+  font-size: 16px;
+}
+
+ol.teams li {
+  line-height: 1.15;
+  margin-bottom: 15px;
+}

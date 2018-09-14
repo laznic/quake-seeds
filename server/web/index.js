@@ -10,7 +10,21 @@ const initialRoutes = function (server, options) {
           view: {
             template: 'index',
             context: {
-              title: 'Quake Seeds'
+              title: 'Quake Seeds - Duel',
+              isDuel: true
+            }
+          }
+        }
+      },
+      {
+        method: 'GET',
+        path: '/2v2',
+        handler: {
+          view: {
+            template: 'index',
+            context: {
+              title: 'Quake Seeds - TDM',
+              isDuel: false
             }
           }
         }
