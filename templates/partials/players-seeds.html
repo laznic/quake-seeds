@@ -2,10 +2,26 @@
   {{#if seeds.length}}
     <main>
       <div>
-        <h1>Player seeding</h1>
-        <ol>
+        <h1>
+          {{#if isDuel}}
+            Player seeding
+          {{else}}
+            Team seeding
+          {{/if}}
+        </h1>
+        <ol {{#unless isDuel}}class="teams"{{/unless}}>
           {{#each seeds}}
-            <li><a href={{this.url}} target="_blank">{{this.name}} –– {{this.rating}}</a></li>
+            {{#if ../isDuel}}
+              <li><a href={{this.url}} target="_blank">{{this.name}} – {{this.rating}}</a></li>
+            {{else}}
+              <li>
+                <span>{{this.name}} – {{this.rating}}</span>
+                {{#each this.players}}
+                  <a href={{this.url}} target="_blank">{{this.name}}</a>
+                  <br>
+                {{/each}}
+              </li>
+            {{/if}}
           {{/each}}
         </ol>
       </div>

@@ -1,13 +1,11 @@
 # Quake Seeds
 
-A tool to help you seed Quake Champion players based on their Elo rating. 
+A tool to help you seed Quake Champion players based on their Elo rating.
 
-If you're running a Quake Champions tournament, whether on 
+If you're running a Quake Champions tournament, whether on
 Battlefy or just by yourself, every minute counts. Using this tool helps you quickly to determine player seeds based on their Elo rating.
 
 Supports both Battlefy and manual input.
-
-**Note:** Only duel is supported for now. 2v2 is coming up in the future.
 
 ## How it works
 How the app works is that it takes in either a Battlefy tournament URL or ID (that is also visible in the URL) or manually added player names.
@@ -24,8 +22,9 @@ and does the numerical seeding. This format displays less data in the seeding vi
 - [ ] Upload a .txt / .cvs / .pdf of player names and do seeding
 - [ ] Generate visualization of brackets
 - [ ] Create groups based on seeds
-- [ ] Support 2v2 teams
+- [x] Support 2v2 teams (added in v1.1)
 - [ ] Support other games?
+- [ ] Support other integrations than Battlefy
 
 ## Built with
 - [Quake Champions](https://quake.bethesda.net/en)
