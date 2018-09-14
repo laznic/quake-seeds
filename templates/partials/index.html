@@ -1,13 +1,40 @@
 <section>
-  <span class="intro">A tool to help you seed Quake Champion players based on their Elo rating. Start by using a</span>
+  <span class="intro">A tool to help you seed Quake Champion players based on their Elo rating. Start by selecting the format.</span>
 
-  <input type="text" placeholder="Battlefy URL or ID" class="id" onkeyup="onKeyUp(event)">
+  <nav class="tabs">
+    <a href="/" {{#isDuel}}class="active"{{/isDuel}}>Duel</a>
+    <a href="/2v2" {{#unless isDuel}}class="active"{{/unless}}>2v2</a>
+  </nav>
 
-  <span class="separator"><span>or add players manually</span></span>
+  <span class="intro">Then, you can use a</span>
 
-  <div class="players">
-    <input type="text" placeholder="Player name, e.g. rapha" class="name" onkeyup="onKeyUpName(event)">
-  </div>
-  <span class="notice">Note: names must be case-sensitive</span>
-  <button type="button" name="button" class="btn" onclick="goToSeeds()">Get seeds</button>
+  {{#isDuel}}
+    <input type="text" placeholder="Battlefy URL or ID" class="id" onkeyup="onKeyUp(event)">
+
+    <span class="separator"><span>or add players manually</span></span>
+
+    <div class="players">
+      <input type="text" placeholder="Player name, e.g. rapha" class="name" onkeyup="onKeyUpName(event)">
+    </div>
+    <span class="notice">Note: names must be case-sensitive</span>
+    <button type="button" name="button" class="btn" onclick="goToSeeds()">Get seeds</button>
+  {{else}}
+    <input type="text" placeholder="Battlefy URL or ID" class="id" onkeyup="onKeyUp(event)">
+
+    <span class="separator"><span>or add teams manually</span></span>
+
+    <div class="players">
+      <div class="team">
+        <input type="text" placeholder="Team name, e.g. Team Liquid" class="team-name" onkeyup="onKeyUpName(event)">
+
+        <div class="team-members">
+          <input type="text" placeholder="Player name" class="name" onkeyup="onKeyUpName(event)">
+          <input type="text" placeholder="Player name" class="name" onkeyup="onKeyUpName(event)">
+        </div>
+      </div>
+    </div>
+    <span class="notice">Note: player names must be case-sensitive</span>
+    <button type="button" name="button" class="btn" onclick="goToSeeds()">Get seeds</button>
+  {{/isDuel}}
+
 </section>
