@@ -285,3 +285,15 @@ footer a:hover {
 .team {
   margin-bottom: 45px;
 }
+
+.team:last-child {
+  margin-bottom: 0;
+}
+
+.team-name {
+  font-weight: 800;
+}
+
+.team-name::placeholder {
+  font-weight: 400;
+}
