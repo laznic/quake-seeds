@@ -67,7 +67,7 @@ const initialRoutes = function (server, options) {
             return await Promise.all(playerRatings).then(values => {
               return {
                 ...team,
-                rating: mean(pluck('rating', values))
+                rating: values.length ? mean(pluck('rating', values)) : 0
               }
             })
           })
