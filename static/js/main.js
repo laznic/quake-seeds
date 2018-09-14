@@ -20,6 +20,26 @@ function onKeyUpName(e) {
   }
 }
 
+function onKeyUpTeam(e) {
+  if (e.target.value.length) {
+    const allTeams = getAllTeams()
+    const currentTeamIndex = allTeams.findIndex(element => element.contains(e.target))
+    const currentTeam = allTeams[currentTeamIndex]
+    const teamMembers = Array.from(currentTeam.children).find(child => child.className === 'team-members')
+    const hasBothPlayers = Array.from(teamMembers.children).every(member => member.value.length)
+
+    if (currentTeamIndex + 2 > allTeams.length && hasBothPlayers) {
+      const playerContainer = document.querySelector('.players')
+
+      playerContainer.insertAdjacentHTML('beforeend', allTeams[currentTeamIndex].outerHTML)
+
+      if (e.keyCode === 13) {
+        goToSeeds()
+      }
+    }
+  }
+}
+
 function goToSeeds() {
   const inputElement = document.querySelector('.id')
   const id = inputElement.value
@@ -55,4 +75,8 @@ function removeWarning() {
 
 function getAllNameInputs() {
   return Array.from(document.querySelectorAll('.name'))
+}
+
+function getAllTeams() {
+  return Array.from(document.querySelectorAll('.team'))
 }
