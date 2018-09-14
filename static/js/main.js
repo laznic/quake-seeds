@@ -76,7 +76,7 @@ function goToTeamSeeds() {
   removeWarning()
 
   if (id.length && !hasTeamValues) {
-    window.location.href = window.location.href + 'api/battlefy/' + id
+    window.location.href = window.location.origin + '/api/battlefy/2v2/' + id
 
   } else if (!id.length && hasTeamValues) {
     const teams = allTeams.map(team => {

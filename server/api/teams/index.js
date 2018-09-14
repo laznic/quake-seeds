@@ -16,7 +16,6 @@ const initialRoutes = function (server, options) {
         })
 
         if (teams) {
-
           const teamRatings = teams.map(async team => {
             const playerRatings = team.players.map(async player => {
               const promise = Wreck.get('https://stats.quake.com/api/v2/Player/Stats?name=' + player.name)
