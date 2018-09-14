@@ -10,7 +10,7 @@ const initialRoutes = function (server, options) {
       handler: async function(request, h) {
         const teams = Object.keys(request.query).map(key => {
           return {
-            teamName: encodeURIComponent(key),
+            name: key,
             players: request.query[key].split(',').map(player => ({ name: encodeURIComponent(player), url: 'https://stats.quake.com/profile/' + encodeURIComponent(player) }))
           }
         })
