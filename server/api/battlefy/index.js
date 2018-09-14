@@ -65,7 +65,11 @@ const initialRoutes = function (server, options) {
 
           try {
             const { payload: teamsResult } = await getTeams
-            const teams = JSON.parse(teamsResult.toString()).map(team => ({ name: team.name, players: team.players.map(player => ({ name: player.inGameName, url: 'https://stats.quake.com/profile/' + encodeURIComponent(player.inGameName) })) }))
+            const teams = JSON.parse(teamsResult.toString()).map(team => ({
+              name: team.name,
+              players: team.players.map(player => ({ name: player.inGameName, url: 'https://stats.quake.com/profile/' + encodeURIComponent(player.inGameName) })),
+              checkedInAt: team.checkedInAt
+            }))
             await request.yar.set('teams', teams)
 
             const { payload: tournamentResult } = await getTournament
