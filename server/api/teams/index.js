@@ -53,7 +53,7 @@ const initialRoutes = function (server, options) {
 
           const seeds = await Promise.all(teamRatings).then(values => sort(descend(prop('rating')), values))
           request.yar.set('seeds', seeds)
-
+          request.yar.set('isDuel', false)
           request.yar.set('fromPlayers', true)
         }
 
