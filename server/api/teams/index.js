@@ -30,18 +30,22 @@ const initialRoutes = function (server, options) {
                   return { ...player, rating: playerData.playerRatings.duel.rating }
 
               } catch (err) {
-                const retryWithSpaceAtEnd = Wreck.get('https://stats.quake.com/api/v2/Player/Stats?name=' + player.name + '%20')
+                if (!err.data) {
+                  const retryWithSpaceAtEnd = Wreck.get('https://stats.quake.com/api/v2/Player/Stats?name=' + player.name + '%20')
 
-                const { payload } = await retryWithSpaceAtEnd
-                const playerData = JSON.parse(payload.toString())
+                  const { payload } = await retryWithSpaceAtEnd
+                  const playerData = JSON.parse(payload.toString())
 
-                if (playerData.playerRatings.tdm && playerData.playerRatings.tdm.rating > playerData.playerRatings.duel.rating)
-                  return { ...player, rating: playerData.playerRatings ? playerData.playerRatings.tdm.rating : 0, url: player.url + '%20' }
-                else
-                  return { ...player, rating: playerData.playerRatings ? playerData.playerRatings.duel.rating : 0, url: player.url + '%20' }
+                  if (playerData.playerRatings.tdm && playerData.playerRatings.tdm.rating > playerData.playerRatings.duel.rating)
+                    return { ...player, rating: playerData.playerRatings ? playerData.playerRatings.tdm.rating : 0, url: player.url + '%20' }
+                  else
+                    return { ...player, rating: playerData.playerRatings ? playerData.playerRatings.duel.rating : 0, url: player.url + '%20' }
+
+                } else {
+                  return { ...player, rating: 0, url: player.url }
+                }
               }
             })
-
 
             return await Promise.all(playerRatings).then(values =>  {
               return {
