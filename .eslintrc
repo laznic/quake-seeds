@@ -1,0 +1,12 @@
+{
+  "extends": "eslint-config-hapi",
+  "parserOptions": {
+    "ecmaVersion": 9
+  },
+  "rules": {
+    "indent": ["error", 2, { "SwitchCase": 1 }],
+    "semi": ["error", "never"],
+    "arrow-parens": "off",
+    "brace-style": "off"
+  }
+}
