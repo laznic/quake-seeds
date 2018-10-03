@@ -93,12 +93,22 @@ button,
   border-radius: 2px;
 }
 
+.btn.secondary {
+  background: transparent;
+  box-shadow: inset 0 0 0 2px #99001a;
+}
+
 button:hover,
 button:focus,
 .btn:hover,
 .btn:focus {
   background: #cc002c;
   outline: none;
+}
+
+.btn.secondary:hover,
+.btn.secondary:focus {
+  box-shadow: inset 0 0 0 2px #cc002c;
 }
 
 
