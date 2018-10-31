@@ -1,5 +1,7 @@
 # Quake Seeds
 
+**Note:** Development is mainly done on [GitLab](https://gitlab.com/laznic/quake-seeds)
+
 A tool to help you seed Quake Champion players based on their Elo rating.
 
 If you're running a Quake Champions tournament, whether on
